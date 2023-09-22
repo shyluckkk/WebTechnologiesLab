@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Selection Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #3b7288, #204051);
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        h3 {
+            margin: 0;
+            font-size: 32px;
+            color: #ff9900;
+            margin-bottom: 20px;
+        }
+        form {
+            margin-top: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #ff9900;
+            font-size: 18px;
+            text-align: left;
+        }
+        input[type="text"], input[type="number"], select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            font-size: 16px;
+        }
+        select {
+            appearance: none;
+            background-color: #333333;
+            color: #fff;
+            background-image: url("arrow-down.png");
+            background-repeat: no-repeat;
+            background-position: right center;
+            background-size: 18px 18px;
+            padding-right: 30px;
+        }
+        button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body bgcolor="#3b7288">
+    <div class="container">
+        <h3>Car Selection</h3>
+        <form id="car-details-form">
+            <label for="mail">Mail Id:</label>
+            <input type="text" id="mail" name="mail"><br><br>
+
+            <h2 style="text-align: center;">SELECT YOUR CAR</h2>
+        
+            <label for="Cartype">Select Car Type:</label>
+            <select id="Cartype" name="Cartype">
+                <option value="none">Select Car Type</option>
+                <option value="sedans">Sedans</option>
+                <option value="suv">SUV</option>
+                <option value="Coupes">Coupes</option>
+                <option value="Convertibles">Convertibles</option>
+                <option value="Hatchbacks">Hatchbacks</option>
+            </select>
+                
+            <div id="variant-section" style="display: none;">
+                <label for="Variant">Select Variant:</label>
+                <select id="Variant" name="variant">
+                    <option value="none">Select Variant</option>
+                </select>
+            </div>
+                
+            <label for="Color">Select Color:</label>
+            <select id="Color" name="Color">
+                <option value="none">Select Color</option>
+                <option value="IMOLA RED">IMOLA RED</option>
+                <option value="ESTORIL BLUE">ESTORIL BLUE</option>
+                <option value="DAKAR YELLOW">DAKAR YELLOW</option>
+                <option value="MACAO BLUE">MACAO BLUE</option>
+                <option value="SILVER GREY">SILVER GREY</option>
+                <option value="BRITISH RACING GREEN">BRITISH RACING GREEN</option>
+                <option value="CARBON BLACK">CARBON BLACK</option>
+            </select>
+            
+            <br><br><button id="submit" onclick="login()">SUBMIT</button><br><br><br><br>
+        </form>
+    </div>
+
+    <script>
+        var carTypeSelect = document.getElementById("Cartype");
+        var variantSection = document.getElementById("variant-section");
+        var variantSelect = document.getElementById("Variant");
+
+        carTypeSelect.addEventListener("change", function () {
+            var selectedCarType = carTypeSelect.value;
+
+            if (selectedCarType === "sedans") {
+                // Populate the sedan variants
+                populateVariants(["3 Series", "5 Series", "7 Series"]);
+            } else if (selectedCarType === "suv") {
+                // Populate the SUV variants
+                populateVariants(["X1", "X3", "X4", "X5", "X7"]);
+            } else if (selectedCarType === "Coupes") {
+                // Populate the Coupe variants
+                populateVariants(["2 Series", "4 Series", "8 Series"]);
+            } else if (selectedCarType === "Convertibles") {
+                // Populate the Convertible variants
+                populateVariants(["2 Series", "4 Series", "8 Series", "Z4"]);
+            } else if (selectedCarType === "Hatchbacks") {
+                // Populate the Hatchback variants
+                populateVariants(["1 Series", "2 Series"]);
+            } else {
+                // If "Select Car Type" is selected, hide the variant section
+                variantSection.style.display = "none";
+                // Reset the variant select options
+                variantSelect.innerHTML = '<option value="none">Select Variant</option>';
+            }
+        });
+
+        function populateVariants(variantArray) {
+            variantSection.style.display = "block";
+            variantSelect.innerHTML = '<option value="none">Select Variant</option>';
+            
+            for (var i = 0; i < variantArray.length; i++) {
+                var option = document.createElement("option");
+                option.value = variantArray[i];
+                option.textContent = variantArray[i];
+                variantSelect.appendChild(option);
+            }
+        }
+
+        function login() {
+            var username = document.getElementById("mail").value;
+            if (username === "user") {
+                alert("Login successful!");
+            } else {
+                alert("Invalid username . Please try again.");
+            }
+        }
+    </script>
+</body>
+</html>
