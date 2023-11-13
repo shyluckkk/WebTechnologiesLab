@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css" />
+<title>BMW M8 URL Rewriting</title>
+</head>
+<body>
+<div class="flex-col">
+<h1>BMW M8 URL Rewriting</h1>
+<form class="flex-col" action="bmwurl" method="post">
+<label for="model">Enter BMW Model</label>
+<input type="name" id="model" name="model" placeholder="Enter the BMW
+model" />
+<label for="price">Enter the Price</label>
+<input type="number" id="price" name="price" placeholder="Enter the
+price in USD" />
+<input type="submit" value="Store" />
+</form>
+<a
+href='restorebmwurl?model=<%=request.getParameter("model")%>&price=<%=request.get
+Parameter("price")%>'>Click here to see the URL</a>
+</div>
+</body>
+</html>

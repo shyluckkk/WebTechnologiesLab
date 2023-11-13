@@ -1,0 +1,10 @@
+<web-app>
+ <servlet>
+ <servlet-name>BMWServlet</servlet-name>
+ <servlet-class>BMWServlet</servlet-class>
+ </servlet>
+ <servlet-mapping>
+ <servlet-name>BMWServlet</servlet-name>
+ <url-pattern>/BMWservlet</url-pattern>
+ </servlet-mapping>
+</web-app>

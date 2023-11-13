@@ -78,8 +78,8 @@
     <div class="container">
         <h3>Car Selection</h3>
         <form id="car-details-form">
-            <label for="mail">Mail Id:</label>
-            <input type="text" id="mail" name="mail"><br><br>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username"><br><br>
 
             <h2 style="text-align: center;">SELECT YOUR CAR</h2>
         
@@ -112,7 +112,7 @@
                 <option value="CARBON BLACK">CARBON BLACK</option>
             </select>
             
-            <br><br><button id="submit" onclick="login()">SUBMIT</button><br><br><br><br>
+            <br><br><button id="submit" onclick="validateUsername()">SUBMIT</button><br><br><br><br>
         </form>
     </div>
 
@@ -159,12 +159,12 @@
             }
         }
 
-        function login() {
-            var username = document.getElementById("mail").value;
+        function validateUsername() {
+            var username = document.getElementById("username").value;
             if (username === "user") {
-                alert("Login successful!");
+                alert("Congratulations! Your car has been booked!");
             } else {
-                alert("Invalid username . Please try again.");
+                alert("Invalid username. Please try again.");
             }
         }
     </script>
